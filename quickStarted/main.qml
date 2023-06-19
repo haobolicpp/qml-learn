@@ -104,6 +104,7 @@ Window {
         // wrapMode: Text.WordWrap
     }
 
+    //自定义按钮
     Button{
         id:btn
         x:250;y:250
@@ -113,5 +114,10 @@ Window {
         }
     }
 
+    //定位元素
+    Column{
+        id:col
+        anchors.bottom:
+    }
 }
 
