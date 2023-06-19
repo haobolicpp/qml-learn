@@ -63,11 +63,11 @@ Window {
         width: 76; height: 96
         color: "lightsteelblue"
         MouseArea {
-                    id: area
-                    width: parent.width
-                    height: parent.height
-                    onClicked: rect2.visible = !rect2.visible
-                }
+            id: area
+            width: parent.width
+            height: parent.height
+            onClicked: rect2.visible = !rect2.visible
+        }
     }
     Rectangle {
         id: rect2
@@ -78,28 +78,40 @@ Window {
         radius: 8
     }
     Rectangle {
-            id: rect3
-            x: 212; y: 120
-            width: 176; height: 96
-            gradient: Gradient {
-                GradientStop { position: 0.0; color: "lightsteelblue" }
-                GradientStop { position: 1.0; color: "slategray" }
-            }
-            border.color: "slategray"
+        id: rect3
+        x: 212; y: 120
+        width: 176; height: 96
+        gradient: Gradient {
+            GradientStop { position: 0.0; color: "lightsteelblue" }
+            GradientStop { position: 1.0; color: "slategray" }
         }
+        border.color: "slategray"
+    }
 
     Text {
         id:t2
-        width: 40; height: 120
+        x:250;y:300
+        width: 40; height: 50
         text: 'A very long text'
+        font.pointSize: 20
         // '...' shall appear in the middle
-        elide: Text.ElideMiddle
+        //elide: Text.ElideMiddle
         // red sunken text styling
-        style: Text.Sunken
         styleColor: '#FF4444'
         // align text to the top
         verticalAlignment: Text.AlignTop
         // only sensible when no elide mode
         // wrapMode: Text.WordWrap
     }
+
+    Button{
+        id:btn
+        x:250;y:250
+        text: "my button"
+        onClicked: {
+            t2.text = "hello button"
+        }
+    }
+
 }
+
