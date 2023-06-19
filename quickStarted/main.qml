@@ -56,4 +56,50 @@ Window {
             spacePresses = spacePresses + 1
         }
     }
+
+    Rectangle {
+        id: rect1
+        x: 12; y: 120
+        width: 76; height: 96
+        color: "lightsteelblue"
+        MouseArea {
+                    id: area
+                    width: parent.width
+                    height: parent.height
+                    onClicked: rect2.visible = !rect2.visible
+                }
+    }
+    Rectangle {
+        id: rect2
+        x: 112; y: 120
+        width: 76; height: 96
+        border.color: "lightsteelblue"
+        border.width: 4
+        radius: 8
+    }
+    Rectangle {
+            id: rect3
+            x: 212; y: 120
+            width: 176; height: 96
+            gradient: Gradient {
+                GradientStop { position: 0.0; color: "lightsteelblue" }
+                GradientStop { position: 1.0; color: "slategray" }
+            }
+            border.color: "slategray"
+        }
+
+    Text {
+        id:t2
+        width: 40; height: 120
+        text: 'A very long text'
+        // '...' shall appear in the middle
+        elide: Text.ElideMiddle
+        // red sunken text styling
+        style: Text.Sunken
+        styleColor: '#FF4444'
+        // align text to the top
+        verticalAlignment: Text.AlignTop
+        // only sensible when no elide mode
+        // wrapMode: Text.WordWrap
+    }
 }
