@@ -2,7 +2,5 @@
     <qresource prefix="/">
         <file>main.qml</file>
         <file>Button.qml</file>
-        <file>position/RedSquare.qml</file>
-        <file>position/column.qml</file>
     </qresource>
 </RCC>

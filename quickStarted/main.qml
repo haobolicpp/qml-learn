@@ -1,7 +1,12 @@
 import QtQuick 2.12
 import QtQuick.Window 2.12
 
+/***********************************************/
+/********可以用Qt quick design来设计**************/
+/***********************************************/
+
 Window {
+    id: window
     visible: true
     width: 640
     height: 480
@@ -11,16 +16,16 @@ Window {
         // (1) identifier
         id: thisLabel
         // (2) set x- and y-position
-        x: 24; y: 16
         // (3) bind height to 2 * width 【属性绑定】
-        width: parent.width/2
-        height: 2 * width
+        //width: parent.width/2
+        //height: 2 * width
         // (4) custom property
         property int times: 24
         // (5) property alias 别名
         property alias anotherTimes: thisLabel.times
         // (6) set text appended by value
         text: "Greetings " + times
+
         // (7) font is a grouped property 组属性
         font.family: "Ubuntu"
         font.pixelSize: 24
@@ -32,6 +37,14 @@ Window {
         focus: false
         // change color based on focus value
         color: focus?"green":"black"
+
+        //在父元素中位置
+        anchors.left: parent.left //注意这个竟然没有代码提示！
+        anchors.leftMargin: 5
+        anchors.top: parent.top
+        anchors.topMargin: 6
+
+
     }
     Text {
         id: label
@@ -114,10 +127,79 @@ Window {
         }
     }
 
-    //定位元素
-    Column{
-        id:col
-        anchors.bottom:
+    //垂直布局
+    Column {
+        id: row
+        x: 464
+        y: 37
+        width: 136
+        height: 242
+        spacing: 1
+
+        Button {
+            id: button
+            x: 0
+            y: 0
+            anchors.horizontalCenter: parent.horizontalCenter
+        }
+
+        Image {
+            id: image
+            x: 0
+            y: 0
+            width: 100
+            height: 100
+            anchors.horizontalCenter: parent.horizontalCenter
+            source: "qrc:/qtquickplugin/images/template_image.png"
+            fillMode: Image.PreserveAspectFit
+        }
+
+        Button {
+            id: button1
+            x: 0
+            y: 0
+            anchors.horizontalCenter: parent.horizontalCenter
+        }
+
+
     }
+
+    TextInput {
+        id: textInput
+        x: 50
+        y: 366
+        width: 80
+        height: 20
+        text: qsTr("Text Input")
+        font.pixelSize: 12
+    }
+
+    TextEdit {
+        id: textEdit
+        x: 50
+        y: 406
+        width: 80
+        height: 20
+        text: qsTr("Text Edit")
+        font.pixelSize: 12
+    }
+
+    Text {
+        id: element
+        x: 150
+        y: 370
+        text: qsTr("Text")
+        font.pixelSize: 12
+    }
+
+
+
+
 }
 
+
+/*##^##
+Designer {
+    D{i:1;anchors_x:24;anchors_y:16}D{i:13;anchors_x:464;anchors_y:50}D{i:15;anchors_x:0;anchors_y:0}
+}
+##^##*/

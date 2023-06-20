@@ -10,8 +10,8 @@ Item {
 
     Rectangle{
         id:button
-        color: "#0abbf1"
-        border.color: Qt.lighter(color)
+        color: "#ec9a7d"
+        border.color: "#e52323"
         anchors.fill: parent //将该元素填充到父元素的边界内
         Text {
             id: label
