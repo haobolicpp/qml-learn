@@ -1,4 +1,5 @@
 <RCC>
-    <qresource prefix="CMyWidget">
+    <qresource prefix="/">
+        <file>test.qml</file>
     </qresource>
 </RCC>
