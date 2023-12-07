@@ -27,41 +27,18 @@ Rectangle {
 
     }
 
-    Text {
-        id:t
-        height: 28
-        objectName: "t"
-        anchors.top: btn.bottom
-        text: "Hello, World!"
-        verticalAlignment: Text.AlignVCenter
-        horizontalAlignment: Text.AlignHCenter
-        font.pointSize: 12
+    Slider {
+        width: 500 
+		MouseArea {
+                id: mouseArea
+                anchors.fill: parent
+                propagateComposedEvents: true
+                onReleased: {
+                    console.log("clicked blue")
+					mouse.accepted = false
+                }
+            }
     }
 
-    Rectangle{
-        id:rect
-        objectName: "rect"
-        anchors.top : t.bottom
-        width: 100
-        height: 50
-        color: "yellow"
-    }
-
-    Text {
-        id:t2
-        height: 28
-        objectName: "t2"
-        anchors.top: rect.bottom
-        text: "123!"
-        verticalAlignment: Text.AlignVCenter
-        horizontalAlignment: Text.AlignHCenter
-        font.pointSize: 12
-    }
-
-    TextEdit{
-        id:te
-        objectName: "te"
-        anchors.top: t2.bottom
-    }
 	
 }

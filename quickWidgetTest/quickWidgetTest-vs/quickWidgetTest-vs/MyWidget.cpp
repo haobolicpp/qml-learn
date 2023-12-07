@@ -18,8 +18,8 @@ CMyWidget::CMyWidget(QWidget *parent)
     //将当前对象设置为qml引擎属性，方便qml中执行槽函数，注意信号的定义大小写问题
     m_pquickWidget->rootContext()->setContextProperty("myWidget", this);
 
-    //通过setLayout将qml页面设置到widget中显示
-    m_pquickWidget->setLayout(m_layout);
+    //
+    m_layout->addWidget(m_pquickWidget);
 
     //qml信号，c++槽
     connect((QObject*)m_pquickWidget->rootObject(), SIGNAL(btnClicked()),this, SLOT(slotBtnClicked()));
